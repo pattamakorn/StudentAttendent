@@ -42,6 +42,7 @@ public class newsAdapter extends RecyclerView.Adapter<newsAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         holder.nameteachpost.setText(mnews.get(position).getTeachpost());
+        holder.showtopic.setText(mnews.get(position).getTopic());
         holder.textpost.setText(mnews.get(position).getMassagepost());
         holder.postdata.setText(mnews.get(position).getDatepost());
         // holder.url_ima.setImageURI();
@@ -59,12 +60,13 @@ public class newsAdapter extends RecyclerView.Adapter<newsAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView nameteachpost,textpost,postdata;
+        private TextView nameteachpost,showtopic,textpost,postdata;
         public ImageView url_ima;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nameteachpost = itemView.findViewById(R.id.nameteacherpost);
+            showtopic = itemView.findViewById(R.id.topic);
             textpost = itemView.findViewById(R.id.maseeageNews);
             postdata = itemView.findViewById(R.id.DataOfPost);
             url_ima = itemView.findViewById(R.id.imagetPost);

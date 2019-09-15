@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="10dp"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:background="#E29B9B"
+    android:background="@drawable/newsbg"
     android:layout_height="wrap_content">
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imagetPost"
@@ -18,13 +20,19 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:orientation="vertical"
-        android:paddingTop="20dp">
+        android:paddingTop="10dp">
 
         <TextView
             android:id="@+id/nameteacherpost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ชื่อครู"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/topic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หัวข้อ"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -41,26 +49,22 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:background="@drawable/textnewss"
+            android:paddingEnd="20dp"
             android:layout_width="250dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:paddingRight="20dp">
 
             <TextView
                 android:id="@+id/maseeageNews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/textnewss"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
-                android:paddingEnd="30dp"
-                android:paddingRight="18dp"
+                android:layout_marginBottom="20dp"
                 android:text="ข้อความ"
                 android:textStyle="bold" />
         </RelativeLayout>
-
-
     </LinearLayout>
-    <RelativeLayout
-        android:gravity="end"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 </LinearLayout>

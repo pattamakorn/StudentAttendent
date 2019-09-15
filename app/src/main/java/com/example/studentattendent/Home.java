@@ -138,7 +138,11 @@ public class Home extends Fragment {
                     String TLname = posts.getString("ptlname");
                     String Txtpost = posts.getString("textnews");
                     String timenowPost = posts.getString("Tpost");
-                    listnews.add(new news(TFname+" "+TLname,Txtpost,timenowPost,
+                    listnews.add(new news(
+                            TFname+" "+TLname,
+                            posts.getString("topic"),
+                            Txtpost,
+                            timenowPost,
                             posts.getString("img"))
                     );
                     newsAdapter NewsAdapter = new newsAdapter(getContext(),listnews);
