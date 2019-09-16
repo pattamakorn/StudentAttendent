@@ -3,13 +3,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="#ACAAAA"
     tools:context=".TimeTable">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="338px"
+        android:background="@drawable/headtab">
+
+        <TextView
+            android:id="@+id/timetableshow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="258dp"
+            android:layout_marginLeft="258dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="62dp"
+            android:layout_marginRight="62dp"
+            android:text="ตารางเรียนวันนี้"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/daynow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timetableshow"
+            android:layout_alignStart="@+id/timetableshow"
+            android:layout_alignLeft="@+id/timetableshow"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginRight="102dp"
+            android:text="วันจันทร์"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/datenow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/daynow"
+            android:layout_alignStart="@+id/daynow"
+            android:layout_alignLeft="@+id/daynow"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="78dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="61dp"
+            android:text="30/12/2562"
+            android:textColor="#000" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="338px"
+        android:layout_width="match_parent"
+        android:layout_height="172px"
+        android:background="@drawable/tabsecond"
+        android:layout_alignParentLeft="true">
+
+        <TextView
+            android:id="@+id/term"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="275dp"
+            android:layout_marginLeft="275dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            android:text="ภาคเรียนที่ 1/2562"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/classroom"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_below="@+id/term"
+            android:layout_alignEnd="@+id/term"
+            android:layout_alignRight="@+id/term"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="259dp"
+            android:layout_marginLeft="259dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="-9dp"
+            android:layout_marginRight="-9dp"
+            android:layout_marginBottom="16dp"
+            android:text="ชั้นมัธยมศึกษาปีที่ 6/1"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="502dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="199dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="150dp"
+            android:layout_width="match_parent"
+            android:id="@+id/recyclertime"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
 
 </FrameLayout>

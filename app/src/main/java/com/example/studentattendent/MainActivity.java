@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         getSupportFragmentManager().beginTransaction().add(R.id.frameLayout,new Home()).commit();
+
+
     }
 
     @Override

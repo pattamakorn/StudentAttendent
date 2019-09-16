@@ -46,6 +46,8 @@ public class Home extends Fragment {
     private List<news> listnews;
     private String Url_Loadnews = "http://203.154.83.137/StudentAttendent/loadnews.php";
 
+    SessionManager sessionManager;
+
 
     public Home() {
         // Required empty public constructor
@@ -69,6 +71,14 @@ public class Home extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(NewsAdapter);
 
+        sessionManager = new SessionManager(getContext());
+        sessionManager.checklogin();
+        HashMap<String,String> user = sessionManager.getUserDetail();
+        String myusername = user.get(sessionManager.USER);
+        //String mypassword = user.get(sessionManager.PASS);
+        String myname = user.get(sessionManager.NAME);
+
+
 
         return v;
     }
@@ -77,6 +87,7 @@ public class Home extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         listnews = new ArrayList<>();
+
 //        listfoot.add(new footHit("ผัดกระเพา","กระเพาแล้วแต่","55 บาท"));
 //        listfoot.add(new footHit("ข้าวผัดต้มยำ","เจ้ไก่ กังสดาล","45 บาท"));
 //        loadfood();
