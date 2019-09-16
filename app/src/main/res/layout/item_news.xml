@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
+
+<LinearLayout
     android:paddingTop="10dp"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:background="@drawable/newsbg"
     android:layout_height="wrap_content">
-
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imagetPost"
         android:layout_width="62dp"
@@ -68,3 +72,4 @@
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
+</androidx.cardview.widget.CardView>
