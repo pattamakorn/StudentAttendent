@@ -140,7 +140,7 @@ public class Home extends Fragment {
                     String timenowPost = posts.getString("Tpost");
                     listnews.add(new news(
                             TFname+" "+TLname,
-                            posts.getString("topic"),
+                            "หัวข้อเรื่อง : "+posts.getString("topic"),
                             Txtpost,
                             timenowPost,
                             posts.getString("img"))
