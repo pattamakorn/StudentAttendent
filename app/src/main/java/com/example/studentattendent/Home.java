@@ -89,7 +89,8 @@ public class Home extends Fragment {
         dtail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Detail", Toast.LENGTH_SHORT).show();
+                openDialog();
+                //Toast.makeText(getActivity(), "Detail", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -179,6 +180,13 @@ public class Home extends Fragment {
     };
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
+    }
+
+
+    public void openDialog(){
+        detailstudent Detailstudent = new detailstudent();
+        Detailstudent.show(getChildFragmentManager(),"testDialog");
+
     }
 
 }

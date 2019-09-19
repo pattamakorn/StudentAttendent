@@ -48,7 +48,7 @@ public class homeTeacher extends Fragment implements teachposttext.teachposttext
 
 
     private String TURL_Profile = "http://203.154.83.137/StudentAttendent/loaduserteacher.php";
-    private ImageView imgprofileT;
+    private ImageView imgprofileT,profileS;
     private TextView Tname,Tclass,teacher_sub,teacher_tel;
 
 
@@ -97,7 +97,6 @@ public class homeTeacher extends Fragment implements teachposttext.teachposttext
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Post", Toast.LENGTH_SHORT).show();
                 openDialog();
             }
         });
@@ -105,7 +104,6 @@ public class homeTeacher extends Fragment implements teachposttext.teachposttext
         clickpost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Post", Toast.LENGTH_SHORT).show();
                 openDialog();
             }
         });
@@ -195,6 +193,10 @@ public class homeTeacher extends Fragment implements teachposttext.teachposttext
     public void applyTexts(String textPost) {
         textpostja = textPost;
         Toast.makeText(getContext(), textpostja, Toast.LENGTH_SHORT).show();
+        //onResume();
+
+//        getFragmentManager().beginTransaction().add(R.id.frameLayout,new Home()).commit();
+
 
     }
 }

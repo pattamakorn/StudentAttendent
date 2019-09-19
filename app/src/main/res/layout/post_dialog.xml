@@ -2,19 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeTeacher">
-
-        <EditText
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/postedittext"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="60dp"
-            android:textColor="#000"
-            android:shadowColor="#000"
-            android:ems="600"
-            android:hint="ใส่ข้อความ..."/>
+            android:layout_height="wrap_content">
+                <EditText
+                    android:paddingLeft="25dp"
+                    android:paddingRight="20dp"
+                    android:background="#fff"
+                    android:id="@+id/postedittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="60dp"
+                    android:textColor="#000"
+                    android:ems="600"
+                    android:hint="ใส่ข้อความ..."/>
+
+        </RelativeLayout>
 </LinearLayout>
