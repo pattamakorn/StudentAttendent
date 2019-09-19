@@ -32,6 +32,7 @@ public class login extends AppCompatActivity {
     private EditText user,pass;
     private Button login;
     private String URL_LOGIN = "http://203.154.83.137/StudentAttendent/login.php";
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class login extends AppCompatActivity {
         user = findViewById(R.id.userlogin);
         pass = findViewById(R.id.passwordlogin);
         login = findViewById(R.id.login_btn);
+
+        sessionManager = new SessionManager(this);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,10 +78,26 @@ public class login extends AppCompatActivity {
                             if (success.equals("1")){
                                 for (int i = 0;i < jsonArray.length();i++){
                                     JSONObject object = jsonArray.getJSONObject(i);
-                                    String name = object.getString("role").trim();
-                                    Toast.makeText(login.this, "Hello :"+name, Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(login.this,MainActivity.class);
-                                    startActivity(intent);
+                                    String role = object.getString("role").trim();
+                                    //sessionManager.creatsession(mfname+" "+mlname,myusername);
+
+                                    //Toast.makeText(login.this, "Hello :"+role, Toast.LENGTH_SHORT).show();
+//                                    Intent intent = new Intent(login.this,MainActivity.class);
+//                                    startActivity(intent);
+                                    switch (role){
+                                        case "Student":
+                                            Intent intent = new Intent(login.this,MainActivity.class);
+                                            startActivity(intent);
+                                            break;
+                                        case "Teacher":
+                                            Intent intent1 = new Intent(login.this,TeacherActivity.class);
+                                            startActivity(intent1);
+                                            break;
+                                        case "Parent":
+                                            Intent intent2 = new Intent(login.this,ParentActivity.class);
+                                            startActivity(intent2);
+                                            break;
+                                    }
                                 }
                             }
                         } catch (JSONException e) {

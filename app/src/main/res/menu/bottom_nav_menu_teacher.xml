@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="หน้าหลัก" />
+
+    <item
+        android:id="@+id/timetable"
+        android:icon="@drawable/timetable_icon"
+        android:title="ตารางสอน" />
+
+    <item
+        android:id="@+id/checknames"
+        android:icon="@drawable/checkname_icon"
+        android:title="เช็คชื่อ" />
+
+    <item
+        android:id="@+id/transcript"
+        android:icon="@drawable/transcript_icon"
+        android:title="ผลการเรียน" />
+
+    <item
+        android:id="@+id/gps"
+        android:icon="@drawable/maps_icon"
+        android:title="ตำแหน่งปัจจุบัน" />
+</menu>

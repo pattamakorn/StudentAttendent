@@ -3,6 +3,7 @@ package com.example.studentattendent;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -28,28 +29,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Home extends Fragment {
+public class homeTeacher extends Fragment {
+    private TextView clickpost;
+    private ImageView click;
     View v;
-    private String URL_Profile = "http://203.154.83.137/StudentAttendent/studentprofile.php";
-    private ImageView imgprofile;
-    private TextView stdname,stdclass,teachername,teachertel;
 
     private RecyclerView recyclerView;
     private List<news> listnews;
     private String Url_Loadnews = "http://203.154.83.137/StudentAttendent/loadnews.php";
 
-    SessionManager sessionManager;
+
+    private String URL_Profile = "http://203.154.83.137/StudentAttendent/loaduserteacher.php";
+    private ImageView imgprofileT;
+    private TextView Tname,Tclass,teacher_sub,teacher_tel;
 
 
-    public Home() {
+    public homeTeacher() {
         // Required empty public constructor
     }
 
@@ -58,82 +59,54 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_home, container, false);
+        v = inflater.inflate(R.layout.fragment_home_teacher, container, false);
 
-        imgprofile = v.findViewById(R.id.rentProfile);
-        stdname = v.findViewById(R.id.fullname);
-        stdclass = v.findViewById(R.id.classstudent);
-        teachername = v.findViewById(R.id.myteacher);
-        teachertel = v.findViewById(R.id.teal_teacherClass);
+//        imgprofileT = v.findViewById(R.id.teacherProfile);
+//        Tname = v.findViewById(R.id.fullnameteacher);
+//        Tclass = v.findViewById(R.id.adviser);
+//        teacher_tel = v.findViewById(R.id.mytelteacher);
 
-        recyclerView = v.findViewById(R.id.recycler);
+        recyclerView = v.findViewById(R.id.recyclerrrr);
         newsAdapter NewsAdapter = new newsAdapter(getContext(),listnews);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(NewsAdapter);
 
-        sessionManager = new SessionManager(getContext());
-        sessionManager.checklogin();
-        HashMap<String,String> user = sessionManager.getUserDetail();
-        String myusername = user.get(sessionManager.USER);
-        //String mypassword = user.get(sessionManager.PASS);
-        String myname = user.get(sessionManager.NAME);
-
-
-
         return v;
+
+
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         listnews = new ArrayList<>();
-        loadprofile();
+
         loadnews();
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        click = view.findViewById(R.id.impost);
+        clickpost = view.findViewById(R.id.textpost);
 
-    public void loadprofile(){
-        StringRequest stringRequest = new StringRequest(
-                URL_Profile, new Response.Listener<String>() {
+        click.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(String response) {
-                try {
-                    JSONArray array = new JSONArray(response);
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject posts = array.getJSONObject(i);
-                        String fnameS = posts.getString("fname");
-                        String lnameL = posts.getString("lname");
-                        String classja = posts.getString("class");
-                        String imgP = posts.getString("img");
-                        String fnameP = posts.getString("fparent");
-                        String lnameP = posts.getString("lparent");
-                        String fnameT = posts.getString("fteacher");
-                        String lnameT = posts.getString("lteacher");
-                        String Tth = posts.getString("Telteacher");
-                        Glide.with(v.getContext()).load(imgP).into(imgprofile);
-                        //Toast.makeText(v.getContext(), fnameS, Toast.LENGTH_SHORT).show();
-                        stdname.setText(fnameS+" "+lnameL);
-                        stdclass.setText("มัธยมศึกษาปีที่ "+classja);
-                        teachername.setText(fnameT+" "+lnameT);
-                        teachertel.setText("เบอร์โทรศัพท์ "+Tth);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Post", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        clickpost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Post", Toast.LENGTH_SHORT).show();
 
             }
-        },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                    }
+        });
 
-                }) {
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        requestQueue.add(stringRequest);
     }
 
-    public void loadnews(){StringRequest stringRequest = new StringRequest(
+    public void loadnews(){StringRequest stringRequest = new StringRequest(Request.Method.POST,
             Url_Loadnews, new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
@@ -171,5 +144,6 @@ public class Home extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
     }
+
 
 }

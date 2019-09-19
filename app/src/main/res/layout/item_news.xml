@@ -10,53 +10,57 @@
 
 <LinearLayout
     android:paddingTop="10dp"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imagetPost"
-        android:layout_width="62dp"
-        android:layout_height="59dp"
-        android:paddingLeft="10dp"
-        android:src="@drawable/logo" />
-
     <LinearLayout
-        android:layout_width="337dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:orientation="vertical"
-        android:paddingTop="10dp">
-
-        <TextView
-            android:id="@+id/nameteacherpost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ชื่อครู"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/topic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="หัวข้อ"
-            android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imagetPost"
+            android:layout_width="62dp"
+            android:layout_height="59dp"
+            android:paddingLeft="10dp"
+            android:src="@drawable/logo" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:paddingLeft="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/nameteacherpost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ชื่อครู"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="หัวข้อ"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/DataOfPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ราคาอาหาร"
+                android:text="เวลา"
                 android:textStyle="bold" />
         </LinearLayout>
 
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="8dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <RelativeLayout
-            android:background="@drawable/textnewss"
+
             android:paddingEnd="20dp"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:paddingRight="20dp">
@@ -71,6 +75,7 @@
                 android:text="ข้อความ"
                 android:textStyle="bold" />
         </RelativeLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>
 </androidx.cardview.widget.CardView>

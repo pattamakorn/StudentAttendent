@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/timetableshow"
-            android:layout_width="wrap_content"
+            android:layout_width="108dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
@@ -22,14 +22,14 @@
             android:layout_marginStart="258dp"
             android:layout_marginLeft="258dp"
             android:layout_marginTop="11dp"
-            android:layout_marginEnd="62dp"
-            android:layout_marginRight="62dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginRight="45dp"
             android:text="ตารางเรียนวันนี้"
             android:textColor="#000" />
 
         <TextView
             android:id="@+id/daynow"
-            android:layout_width="wrap_content"
+            android:layout_width="112dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/timetableshow"
             android:layout_alignStart="@+id/timetableshow"
@@ -39,15 +39,15 @@
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginRight="102dp"
+            android:layout_marginEnd="41dp"
+            android:layout_marginRight="41dp"
             android:text="วันจันทร์"
             android:textColor="#000" />
 
         <TextView
             android:id="@+id/datenow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="112dp"
+            android:layout_height="19dp"
             android:layout_below="@+id/daynow"
             android:layout_alignStart="@+id/daynow"
             android:layout_alignLeft="@+id/daynow"
@@ -57,8 +57,8 @@
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
-            android:layout_marginEnd="78dp"
-            android:layout_marginRight="78dp"
+            android:layout_marginEnd="41dp"
+            android:layout_marginRight="41dp"
             android:layout_marginBottom="61dp"
             android:text="30/12/2562"
             android:textColor="#000" />
