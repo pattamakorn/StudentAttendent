@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,8 +36,9 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class homeTeacher extends Fragment {
+public class homeTeacher extends Fragment implements teachposttext.teachposttextListener{
     private TextView clickpost;
+    private String textpostja;
     private ImageView click;
     View v;
 
@@ -45,7 +47,7 @@ public class homeTeacher extends Fragment {
     private String Url_Loadnews = "http://203.154.83.137/StudentAttendent/loadnews.php";
 
 
-    private String URL_Profile = "http://203.154.83.137/StudentAttendent/loaduserteacher.php";
+    private String TURL_Profile = "http://203.154.83.137/StudentAttendent/loaduserteacher.php";
     private ImageView imgprofileT;
     private TextView Tname,Tclass,teacher_sub,teacher_tel;
 
@@ -70,6 +72,8 @@ public class homeTeacher extends Fragment {
         newsAdapter NewsAdapter = new newsAdapter(getContext(),listnews);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(NewsAdapter);
+        imgprofileT = v.findViewById(R.id.teacherProfile);
+        Tname = v.findViewById(R.id.fullnameteacher);
 
         return v;
 
@@ -82,6 +86,7 @@ public class homeTeacher extends Fragment {
         listnews = new ArrayList<>();
 
         loadnews();
+        loadprofileteacher();
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -93,6 +98,7 @@ public class homeTeacher extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "Post", Toast.LENGTH_SHORT).show();
+                openDialog();
             }
         });
 
@@ -100,7 +106,7 @@ public class homeTeacher extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "Post", Toast.LENGTH_SHORT).show();
-
+                openDialog();
             }
         });
 
@@ -146,4 +152,49 @@ public class homeTeacher extends Fragment {
     }
 
 
+    public void loadprofileteacher(){
+        StringRequest stringRequest = new StringRequest(
+                TURL_Profile, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray array = new JSONArray(response);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject posts = array.getJSONObject(i);
+                        String imgP = posts.getString("imgT");
+                        String fnameT = posts.getString("fnameteacher");
+                        String lnameT = posts.getString("lnameteacher");
+                        Glide.with(v.getContext()).load(imgP).into(imgprofileT);
+                        Tname.setText(fnameT+" "+lnameT);
+                        //Toast.makeText(v.getContext(), fnameS, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                    }
+
+                }) {
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(stringRequest);
+    }
+
+    public void openDialog(){
+        teachposttext Teachposttext = new teachposttext();
+        Teachposttext.show(getChildFragmentManager(),"testDialog");
+
+    }
+
+    @Override
+    public void applyTexts(String textPost) {
+        textpostja = textPost;
+        Toast.makeText(getContext(), textpostja, Toast.LENGTH_SHORT).show();
+
+    }
 }

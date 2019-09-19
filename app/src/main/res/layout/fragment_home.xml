@@ -6,120 +6,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#b9ada0"
     tools:context=".Home">
-
-    <RelativeLayout
-        android:id="@+id/profile"
-        android:layout_width="match_parent"
-        android:layout_height="498px"
-        android:background="@drawable/tabhead">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/rentProfile"
-            android:layout_width="110dp"
-            android:layout_height="105dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="43dp"
-            android:layout_marginLeft="43dp"
-            android:layout_marginTop="39dp"
-            android:layout_marginBottom="47dp"
-            android:clickable="true"
-            android:src="@drawable/ic_launcher_background" />
-
-        <TextView
-            android:id="@+id/fullname"
-            android:layout_width="231dp"
-            android:layout_height="26dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="9dp"
-            android:layout_marginLeft="9dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="17dp"
-            android:layout_marginRight="17dp"
-            android:layout_toEndOf="@+id/rentProfile"
-            android:layout_toRightOf="@+id/rentProfile"
-            android:text="ชื่อ - นามสกุล"
-            android:textColor="#fff"
-            android:textSize="19sp" />
-
-        <TextView
-            android:id="@+id/classstudent"
-            android:layout_width="231dp"
-            android:layout_height="24dp"
-            android:layout_below="@+id/fullname"
-            android:layout_alignStart="@+id/fullname"
-            android:layout_alignLeft="@+id/fullname"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="17dp"
-            android:layout_marginRight="17dp"
-            android:text="มัธยมศึกษาปีที่ 6/1"
-            android:textColor="#fff"
-            android:textSize="19sp" />
-
-        <TextView
-            android:id="@+id/myteacher"
-            android:layout_width="231dp"
-            android:layout_height="20dp"
-            android:layout_below="@+id/classstudent"
-            android:layout_alignStart="@+id/classstudent"
-            android:layout_alignLeft="@+id/classstudent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="17dp"
-            android:layout_marginRight="17dp"
-            android:text="ครูประจำชั้น"
-            android:textColor="#fff"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/teal_teacherClass"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/myteacher"
-            android:layout_alignStart="@+id/myteacher"
-            android:layout_alignLeft="@+id/myteacher"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="19dp"
-            android:layout_marginRight="19dp"
-            android:layout_marginBottom="45dp"
-            android:text="เบอร์โทรศัพท์"
-            android:textColor="#fff"
-            android:textSize="14sp" />
-    </RelativeLayout>
-
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="502dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="190dp"
-        >
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+            <RelativeLayout
+                android:id="@+id/profile"
+                android:layout_width="match_parent"
+                android:layout_height="498px"
+                android:background="@drawable/bgpro">
 
-        <androidx.recyclerview.widget.RecyclerView
+                <ImageView
+                    android:id="@+id/showdetail"
+                    android:elevation="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="362dp"
+                    android:layout_marginLeft="362dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/detailll" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/rentProfile"
+                    android:layout_width="110dp"
+                    android:layout_height="105dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_launcher_background" />
 
-            android:layout_marginBottom="150dp"
-            android:layout_width="match_parent"
-            android:id="@+id/recycler"
-            android:layout_height="match_parent">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/rentProfile"
+                    android:id="@+id/fullname"
+                    android:layout_width="231dp"
+                    android:layout_height="26dp"
+                    android:text="ชื่อ - นามสกุล"
+                    android:textColor="#fff"
+                    android:textSize="19sp" />
 
-        </androidx.recyclerview.widget.RecyclerView>
-    </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="502dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="190dp"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:layout_marginBottom="150dp"
+                android:layout_width="match_parent"
+                android:id="@+id/recycler"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
 
 
-
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

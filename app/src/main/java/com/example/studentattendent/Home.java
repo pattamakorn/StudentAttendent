@@ -3,6 +3,7 @@ package com.example.studentattendent;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,7 +40,7 @@ import java.util.Map;
 public class Home extends Fragment {
     View v;
     private String URL_Profile = "http://203.154.83.137/StudentAttendent/studentprofile.php";
-    private ImageView imgprofile;
+    private ImageView imgprofile,dtail;
     private TextView stdname,stdclass,teachername,teachertel;
 
     private RecyclerView recyclerView;
@@ -62,9 +63,7 @@ public class Home extends Fragment {
 
         imgprofile = v.findViewById(R.id.rentProfile);
         stdname = v.findViewById(R.id.fullname);
-        stdclass = v.findViewById(R.id.classstudent);
-        teachername = v.findViewById(R.id.myteacher);
-        teachertel = v.findViewById(R.id.teal_teacherClass);
+
 
         recyclerView = v.findViewById(R.id.recycler);
         newsAdapter NewsAdapter = new newsAdapter(getContext(),listnews);
@@ -84,11 +83,24 @@ public class Home extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        dtail = v.findViewById(R.id.showdetail);
+        dtail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Detail", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         listnews = new ArrayList<>();
         loadprofile();
         loadnews();
+
     }
 
     public void loadprofile(){
@@ -112,9 +124,6 @@ public class Home extends Fragment {
                         Glide.with(v.getContext()).load(imgP).into(imgprofile);
                         //Toast.makeText(v.getContext(), fnameS, Toast.LENGTH_SHORT).show();
                         stdname.setText(fnameS+" "+lnameL);
-                        stdclass.setText("มัธยมศึกษาปีที่ "+classja);
-                        teachername.setText(fnameT+" "+lnameT);
-                        teachertel.setText("เบอร์โทรศัพท์ "+Tth);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
