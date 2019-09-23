@@ -37,7 +37,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Home extends Fragment {
+public class Home extends Fragment implements detailstudent.detailListener{
     View v;
     private String URL_Profile = "http://203.154.83.137/StudentAttendent/studentprofile.php";
     private ImageView imgprofile,dtail;
@@ -186,6 +186,15 @@ public class Home extends Fragment {
     public void openDialog(){
         detailstudent Detailstudent = new detailstudent();
         Detailstudent.show(getChildFragmentManager(),"testDialog");
+
+    }
+
+    @Override
+    public void applyTexts(String textPost) {
+        //onResume();
+
+//        getFragmentManager().beginTransaction().add(R.id.frameLayout,new Home()).commit();
+
 
     }
 

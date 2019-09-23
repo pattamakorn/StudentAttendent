@@ -36,7 +36,7 @@ public class detailstudent extends AppCompatDialogFragment {
     View v;
     private EditText edtextpost;
     private TextView detailST;
-    private teachposttext.teachposttextListener listener;
+    private detailstudent.detailListener listener;
     private ImageView imgProfile;
     private String textPost;
     private String URL_postnews = "http://203.154.83.137/StudentAttendent/dtailst.php";
@@ -49,7 +49,7 @@ public class detailstudent extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.profile,null);
         builder.setView(view)
-                .setTitle(" \n \n")
+                .setTitle(textPost)
                 .setNegativeButton("", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -67,7 +67,7 @@ public class detailstudent extends AppCompatDialogFragment {
         imgProfile = view.findViewById(R.id.detailProfile);
         return builder.create();
     }
-    public interface  teachposttextListener{
+    public interface  detailListener{
         void applyTexts(String textPost);
 
     }
@@ -83,7 +83,7 @@ public class detailstudent extends AppCompatDialogFragment {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject posts = array.getJSONObject(i);
                         String imgPro = posts.getString("imgst");
-                        //Glide.with(v.getContext()).load(imgPro).into(imgProfile);
+                        Glide.with(v.getContext()).load(imgPro).into(imgProfile);
 
                     }
                 } catch (JSONException e) {
