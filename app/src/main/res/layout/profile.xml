@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp"
     android:elevation="50dp"
     android:layout_margin="20dp">
-
-    <RelativeLayout
-        android:layout_marginBottom="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        <RelativeLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
@@ -21,63 +19,67 @@
             android:layout_height="105dp"
             android:clickable="true"
             android:src="@drawable/ic_launcher_background" />
-        <TextView
-            android:textColor="#000"
-            android:paddingLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:id="@+id/dname"
-            android:text="Name..."
-            android:layout_below="@+id/detailProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:textColor="#000"
-            android:paddingLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:id="@+id/dtel"
-            android:text="Tel..."
-            android:layout_below="@+id/dname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:textColor="#000"
-            android:paddingLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:id="@+id/dclass"
-            android:text="class..."
-            android:layout_below="@+id/dtel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:layout_below="@+id/detailProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="#000"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/dname"
+                        android:text="ปัทมากร สายรัตน์"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textColor="#000"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/dtel"
+                        android:text="Tel..."
+                        android:layout_below="@+id/dname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textColor="#000"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/dclass"
+                        android:text="class..."
+                        android:layout_below="@+id/dtel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-        <TextView
-            android:textColor="#000"
-            android:paddingLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:id="@+id/dparent"
-            android:text="Parent..."
-            android:layout_below="@+id/dclass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:textColor="#000"
-            android:paddingLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:id="@+id/dadviser"
-            android:text="Adviser..."
-            android:layout_below="@+id/dparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                    <TextView
+                        android:textColor="#000"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/dparent"
+                        android:text="Parent..."
+                        android:layout_below="@+id/dclass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textColor="#000"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/dadviser"
+                        android:text="Adviser..."
+                        android:layout_below="@+id/dparent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-        <TextView
-            android:textColor="#000"
-            android:paddingLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:id="@+id/dTadviser"
-            android:text="Tel Of Adviser..."
-            android:layout_below="@+id/dadviser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginBottom="20dp"
+                        android:textColor="#000"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/dTadviser"
+                        android:text="Tel Of Adviser..."
+                        android:layout_below="@+id/dadviser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+        </RelativeLayout>
 
-    </RelativeLayout>
-
-</androidx.cardview.widget.CardView>
+</RelativeLayout>
